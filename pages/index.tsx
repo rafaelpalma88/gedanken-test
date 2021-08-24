@@ -17,13 +17,13 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        xxxxx
-              <ul>
-                <li><Link href="/list">Listagem</Link></li>
-                <li><Link href="/transaction">Transação</Link></li>
-                <li><Link href="/details">Details</Link></li>
-              </ul>
-        xxxx
+        
+        <ul>
+          <li><Link href="/list">Listagem</Link></li>
+          <li><Link href="/transaction">Transação</Link></li>
+          <li><Link href="/details">Details</Link></li>
+        </ul>
+       
 
         <p className={styles.description}>
           Get started by editing{' '}
