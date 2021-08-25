@@ -1,3 +1,4 @@
+import React from 'react'
 import type { AppProps } from 'next/app'
 import { Container } from '../styles/pages/transaction'
 import styled from 'styled-components'
@@ -11,10 +12,9 @@ const ContainerTeste = styled.div<{bgcolor?: string}>`
   align-items: center;
   background-color: ${props => props.bgcolor ? props.bgcolor : 'white'};
 `
+const List: React.FC<AppProps> = ({ Component, pageProps }) => {
 
-function List({ Component, pageProps }: AppProps) {
-
-
+  console.log('pageProps teste aqui', pageProps)
   return (
     <ContainerTeste>
       <Container>
@@ -26,7 +26,8 @@ function List({ Component, pageProps }: AppProps) {
 }
 export default List
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
+  console.log('caiu aqui')
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/transacao`)
   console.log('res xxx aqui', res)
   const data = await res.json()

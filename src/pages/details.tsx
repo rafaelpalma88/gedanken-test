@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 
-function Details({ Component, pageProps }: AppProps) {
+const Details: React.FC<AppProps> = ({ Component, pageProps }) => {
   return <div>details</div>
 }
 export default Details

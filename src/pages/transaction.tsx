@@ -1,4 +1,5 @@
 // import { FormEvent } from 'react'
+import React from 'react'
 import { useState } from 'react'
 import type { AppProps } from 'next/app'
 import { useForm } from 'react-hook-form'
@@ -16,8 +17,7 @@ const ContainerTeste = styled.div<{bgcolor?: string}>`
   align-items: center;
   background-color: ${props => props.bgcolor ? props.bgcolor : 'white'};
 `
-
-function Transaction({ Component, pageProps }: AppProps) {
+const Transaction: React.FC<AppProps> = ({ Component, pageProps }) => {
 
     const { register, handleSubmit, reset, formState: { errors }} = useForm()
     const [formSent, setFormSent] = useState(false);
