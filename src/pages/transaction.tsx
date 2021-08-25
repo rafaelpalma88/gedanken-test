@@ -23,6 +23,7 @@ function Transaction({ Component, pageProps }: AppProps) {
     const [formSent, setFormSent] = useState(false);
 
     const onSubmitForm = async (values: ITransaction[]) => {
+      console.log('values xxx', values)
     // const onSubmitForm = async (values: any) => {
 
 
