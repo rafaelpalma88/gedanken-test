@@ -9,7 +9,8 @@ type TransactionResponse = {
 // let transactionsArray:ITransaction[]  = []
 let transactionsArray:any = []
 
-export default (req: NextApiRequest, res: NextApiResponse<TransactionResponse>) => {
+// export default (req: NextApiRequest, res: NextApiResponse<TransactionResponse>) => {
+export default (req: NextApiRequest, res: NextApiResponse<any>) => {
 
   if (req.method === 'POST') {
 
@@ -19,7 +20,8 @@ export default (req: NextApiRequest, res: NextApiResponse<TransactionResponse>) 
 
   } else if (req.method === 'GET') {
 
-    res.status(200).json(transactionsArray)
+    // res.status(200).json(transactionsArray)
+    res.status(200).json({"teste": "recebido ok"})
 
   } else {}
 }

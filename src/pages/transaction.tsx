@@ -5,18 +5,9 @@ import type { AppProps } from 'next/app'
 import { useForm } from 'react-hook-form'
 import axios, { AxiosRequestConfig } from 'axios'
 import { ITransaction } from '../interfaces'
-import { Container, Label, Input, Button, Form, FormGroup, InputCustomMask } from '../styles/pages/transaction'
-import styled from 'styled-components'
+import { Label, Input, Button, Form, FormGroup, InputCustomMask } from '../styles/pages/transaction'
+import { GeneralContainer, Container } from '../styles/general'
 
-const ContainerTeste = styled.div<{bgcolor?: string}>`
-  //min-height: 100vh;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: ${props => props.bgcolor ? props.bgcolor : 'white'};
-`
 const Transaction: React.FC<AppProps> = ({ Component, pageProps }) => {
 
     const { register, handleSubmit, reset, formState: { errors }} = useForm()
@@ -57,7 +48,7 @@ const Transaction: React.FC<AppProps> = ({ Component, pageProps }) => {
       }
 
       return (
-        <ContainerTeste bgcolor="white">
+        <GeneralContainer bgcolor="white">
           <Container>
             <h2>Cadastro de Transação</h2>
 
@@ -99,7 +90,7 @@ const Transaction: React.FC<AppProps> = ({ Component, pageProps }) => {
 
             </Form>
           </Container>
-        </ContainerTeste>
+        </GeneralContainer>
 
       )
 
