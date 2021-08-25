@@ -3,7 +3,7 @@ import { useState } from 'react'
 import type { AppProps } from 'next/app'
 import { useForm } from 'react-hook-form'
 import axios, { AxiosRequestConfig } from 'axios'
-import { ITransaction } from './types'
+import { ITransaction } from './interfaces'
 
 function Transaction({ Component, pageProps }: AppProps) {
 
@@ -13,7 +13,6 @@ function Transaction({ Component, pageProps }: AppProps) {
     const onSubmitForm = async (values: ITransaction[]) => {
     // const onSubmitForm = async (values: any) => {
 
-        await console.log('xxx', values)
 
         let config: AxiosRequestConfig = {
           method: 'post',
