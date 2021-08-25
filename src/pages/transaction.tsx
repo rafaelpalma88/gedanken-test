@@ -29,8 +29,8 @@ function Transaction({ Component, pageProps }: AppProps) {
 
         let config: AxiosRequestConfig = {
           method: 'post',
-          // url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/transacao`,
-          url: `/api/v1/transacao`,
+           url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/transacao`,
+          //url: `/api/v1/transacao`,
           headers: {
             'Content-Type' : 'application/json'
           },
