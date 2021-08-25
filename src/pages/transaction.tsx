@@ -3,7 +3,7 @@ import { useState } from 'react'
 import type { AppProps } from 'next/app'
 import { useForm } from 'react-hook-form'
 import axios, { AxiosRequestConfig } from 'axios'
-import { ITransaction } from './interfaces'
+import { ITransaction } from '../interfaces'
 
 function Transaction({ Component, pageProps }: AppProps) {
 
