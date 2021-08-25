@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import { useForm } from 'react-hook-form'
 import axios, { AxiosRequestConfig } from 'axios'
 import { ITransaction } from '../interfaces'
+import { Container } from '../styles/pages/transaction'
 
 function Transaction({ Component, pageProps }: AppProps) {
 
@@ -44,15 +45,16 @@ function Transaction({ Component, pageProps }: AppProps) {
       }
     
       return (
-        <form onSubmit={handleSubmit(onSubmitForm)}>
+        <Container>
+          <form onSubmit={handleSubmit(onSubmitForm)}>
 
             {formSent && (
 
-            <div style={{ background: 'white', padding: '20px', width: '100%', marginTop: '45px', marginBottom: '45px', color: '#98669e', fontWeight: 'bold' }}>
-            Mensagem enviada com sucesso. &nbsp;
-            <span style={{ cursor: 'pointer', textDecoration: 'underline'}} onClick={resetFormSent}>Enviar nova mensagem.</span>
+              <div style={{ background: 'white', padding: '20px', width: '100%', marginTop: '45px', marginBottom: '45px', color: '#98669e', fontWeight: 'bold' }}>
+              Mensagem enviada com sucesso. &nbsp;
+                <span style={{ cursor: 'pointer', textDecoration: 'underline'}} onClick={resetFormSent}>Enviar nova mensagem.</span>
 
-            </div>
+              </div>
 
             )}
 
@@ -87,7 +89,9 @@ function Transaction({ Component, pageProps }: AppProps) {
             </div>
             <button type="submit">Cadastrar</button>
 
-        </form>
+          </form>
+        </Container>
+        
       )
 
 }
