@@ -52,9 +52,9 @@ export const FormGroup = styled.div`
 `;
 
 export const Label = styled.label`
-	margin-bottom: 1em;
-	color: white;
-  display: block;
+    margin-bottom: 1em;
+	color: black;
+    display: block;
 `;
 
 

@@ -4,7 +4,7 @@ import type { AppProps } from 'next/app'
 import { useForm } from 'react-hook-form'
 import axios, { AxiosRequestConfig } from 'axios'
 import { ITransaction } from '../interfaces'
-import { Container } from '../styles/pages/transaction'
+import { Container, Label, Input } from '../styles/pages/transaction'
 
 function Transaction({ Component, pageProps }: AppProps) {
 
@@ -63,28 +63,28 @@ function Transaction({ Component, pageProps }: AppProps) {
             </div>
 
             <div>
-                <label htmlFor="id">ID</label>
-                <input id="id" type="number" required {...register("id")} />
+                <Label htmlFor="id">ID</Label>
+                <Input id="id" type="number" required {...register("id")} />
                 <br />
             </div>
             <div>
                 <label htmlFor="estabelecimento">Estabelecimento</label>
-                <input id="estabelecimento" type="text" required {...register("estabelecimento")} />
+                <Input id="estabelecimento" type="text" required {...register("estabelecimento")} />
                 <br />
             </div>
             <div>
                 <label htmlFor="cliente">Cliente</label>
-                <input id="cliente" type="text" required {...register("cliente")} />
+                <Input id="cliente" type="text" required {...register("cliente")} />
                 <br />
             </div>
             <div>
                 <label htmlFor="valor">Valor</label>
-                <input id="valor" type="number" required {...register("valor")} />
+                <Input id="valor" type="number" required {...register("valor")} />
                 <br />
             </div>
             <div>
                 <label htmlFor="descricao">Descrição</label>
-                <input id="descricao" type="text" required {...register("descricao")} />
+                <Input id="descricao" type="text" required {...register("descricao")} />
                 <br /> 
             </div>
             <button type="submit">Cadastrar</button>
