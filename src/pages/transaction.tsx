@@ -14,14 +14,10 @@ const Transaction: React.FC<AppProps> = ({ Component, pageProps }) => {
     const [formSent, setFormSent] = useState(false);
 
     const onSubmitForm = async (values: ITransaction[]) => {
-      console.log('values xxx', values)
-    // const onSubmitForm = async (values: any) => {
-
 
         let config: AxiosRequestConfig = {
           method: 'post',
            url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/transacao`,
-          //url: `/api/v1/transacao`,
           headers: {
             'Content-Type' : 'application/json'
           },
@@ -32,7 +28,6 @@ const Transaction: React.FC<AppProps> = ({ Component, pageProps }) => {
         try
         {
           const response = await axios(config);
-          //console.log('response', response.data)
             if (response.data.aceito) {
             setFormSent(true);
           }
