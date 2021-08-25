@@ -1,3 +1,4 @@
+import type { AppProps } from 'next/app'
 export interface ITransaction {
     estabelecimento: string
     cliente: string
@@ -6,3 +7,6 @@ export interface ITransaction {
     id: number
 }
 
+export interface IExtendedAppProps extends AppProps {
+  transactions: ITransaction[]
+ }
