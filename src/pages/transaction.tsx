@@ -4,7 +4,18 @@ import type { AppProps } from 'next/app'
 import { useForm } from 'react-hook-form'
 import axios, { AxiosRequestConfig } from 'axios'
 import { ITransaction } from '../interfaces'
-import { Container, Label, Input } from '../styles/pages/transaction'
+import { Container, Label, Input, Button, Form, FormGroup, InputCustomMask } from '../styles/pages/transaction'
+import styled from 'styled-components'
+
+const ContainerTeste = styled.div<{bgcolor?: string}>`
+  //min-height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.bgcolor ? props.bgcolor : 'white'};
+`
 
 function Transaction({ Component, pageProps }: AppProps) {
 
@@ -25,7 +36,7 @@ function Transaction({ Component, pageProps }: AppProps) {
           data: values,
 
         }
-    
+
         try
         {
           const response = await axios(config);
@@ -38,60 +49,57 @@ function Transaction({ Component, pageProps }: AppProps) {
           setFormSent(false);
         }
       }
-    
+
       const resetFormSent = () => {
         reset();
         setFormSent(false);
       }
-    
+
       return (
-        <Container>
-          <form onSubmit={handleSubmit(onSubmitForm)}>
+        <ContainerTeste bgcolor="white">
+          <Container>
+            <h2>Cadastro de Transação</h2>
 
-            {formSent && (
+            <Form onSubmit={handleSubmit(onSubmitForm)}>
 
-              <div style={{ background: 'white', padding: '20px', width: '100%', marginTop: '45px', marginBottom: '45px', color: '#98669e', fontWeight: 'bold' }}>
-              Mensagem enviada com sucesso. &nbsp;
-                <span style={{ cursor: 'pointer', textDecoration: 'underline'}} onClick={resetFormSent}>Enviar nova mensagem.</span>
+              {formSent && (
 
-              </div>
+                <div style={{ background: 'green', padding: '20px', width: '100%', marginTop: '45px', marginBottom: '45px', color: 'white', fontWeight: 'bold' }}>
+                Transação cadastrada com sucesso. &nbsp;
+                  <span style={{ cursor: 'pointer', textDecoration: 'underline'}} onClick={resetFormSent}>Fechar</span>
+                </div>
 
-            )}
+              )}
 
-            <div>
-                <p>Formulário enviado com sucesso. Resposta:</p>
-            </div>
+              <FormGroup>
+                  <Label htmlFor="id">ID</Label>
+                  <Input id="id" {...register("id")} />
+              </FormGroup>
+              <FormGroup>
+                  <Label htmlFor="estabelecimento">Estabelecimento (CNPJ)</Label>
+                  <InputCustomMask id="estabelecimento" mask="99.999.999/9999-99" {...register("estabelecimento")} />
+              </FormGroup>
+              <FormGroup>
+                  <Label htmlFor="cliente">Cliente</Label>
+                  <InputCustomMask id="cliente" mask="99.999.999/9999-99" {...register("cliente")} />
+                  <br />
+              </FormGroup>
+              <FormGroup>
+                  <Label htmlFor="valor">Valor</Label>
+                  <Input id="valor" type="number" required {...register("valor")} />
+                  <br />
+              </FormGroup>
+              <FormGroup>
+                  <Label htmlFor="descricao">Descrição</Label>
+                  <Input id="descricao" type="text" required {...register("descricao")} />
+                  <br />
+              </FormGroup>
+              <Button type="submit">Cadastrar</Button>
 
-            <div>
-                <Label htmlFor="id">ID</Label>
-                <Input id="id" type="number" required {...register("id")} />
-                <br />
-            </div>
-            <div>
-                <label htmlFor="estabelecimento">Estabelecimento</label>
-                <Input id="estabelecimento" type="text" required {...register("estabelecimento")} />
-                <br />
-            </div>
-            <div>
-                <label htmlFor="cliente">Cliente</label>
-                <Input id="cliente" type="text" required {...register("cliente")} />
-                <br />
-            </div>
-            <div>
-                <label htmlFor="valor">Valor</label>
-                <Input id="valor" type="number" required {...register("valor")} />
-                <br />
-            </div>
-            <div>
-                <label htmlFor="descricao">Descrição</label>
-                <Input id="descricao" type="text" required {...register("descricao")} />
-                <br /> 
-            </div>
-            <button type="submit">Cadastrar</button>
+            </Form>
+          </Container>
+        </ContainerTeste>
 
-          </form>
-        </Container>
-        
       )
 
 }

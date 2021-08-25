@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import InputMask from "react-input-mask";
 
 export const Container = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ export const Container = styled.div`
   padding-top: 45px;
   padding-bottom: 45px;
   justify-content: center;
-  color: white;
+  color: black;
   align-items: center;
   @media (min-width: 576px) {
     width: 570px;
@@ -72,6 +73,20 @@ export const Input = styled.input<{error?: boolean}>`
   };
 `;
 
+export const InputCustomMask = styled(InputMask)<{error?: boolean}>`
+  font: 400 16px Roboto, sans-serif;
+	padding: 1em;
+	color: black;
+	background: white;
+	width: 100%;
+	margin-bottom: 0.5em;
+  border: ${
+      props => props.error ?
+          "2px solid red" :
+          "2px solid gray"
+  };
+`;
+
 export const Textarea = styled.textarea<{error?: boolean}>`
   font: 400 16px Roboto, sans-serif;
 	padding: 1em;
@@ -99,10 +114,10 @@ export const Message = styled.span`
 `;
 
 export const Button = styled.button`
-	background: white;
+	background: gray;
   padding: 15px 40px;
   margin-top: 1em;
-  color: #98669e;
+  color: white;
   border: 0px;
   font-weight: bold;
   font-size: 1em;
