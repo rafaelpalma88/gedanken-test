@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { GeneralContainer, Container } from '../styles/general'
 import { IExtendedAppProps } from '../interfaces'
 
@@ -40,7 +40,7 @@ const List: React.FC<IExtendedAppProps> = ({ Component, pageProps, transactions 
   )
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/transacao`)
   const data = await res.json()
 

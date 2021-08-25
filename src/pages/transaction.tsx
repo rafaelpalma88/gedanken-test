@@ -6,6 +6,8 @@ import axios, { AxiosRequestConfig } from 'axios'
 import { ITransaction } from '../interfaces'
 import { Label, Input, Button, Form, FormGroup, InputCustomMask } from '../styles/pages/transaction'
 import { GeneralContainer, Container } from '../styles/general'
+import nookies from 'nookies'
+
 
 const Transaction: React.FC<AppProps> = ({ Component, pageProps }) => {
 
@@ -59,7 +61,7 @@ const Transaction: React.FC<AppProps> = ({ Component, pageProps }) => {
 
               <FormGroup>
                   <Label htmlFor="id">ID</Label>
-                  <Input id="id" {...register("id")} />
+                  <Input id="id" type="number" {...register("id")} />
               </FormGroup>
               <FormGroup>
                   <Label htmlFor="estabelecimento">Estabelecimento (CNPJ)</Label>
