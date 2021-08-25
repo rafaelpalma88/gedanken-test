@@ -6,8 +6,6 @@ import axios, { AxiosRequestConfig } from 'axios'
 import { ITransaction } from '../interfaces'
 import { Label, Input, Button, Form, FormGroup, InputCustomMask } from '../styles/pages/transaction'
 import { GeneralContainer, Container } from '../styles/general'
-import nookies from 'nookies'
-
 
 const Transaction: React.FC<AppProps> = ({ Component, pageProps }) => {
 
