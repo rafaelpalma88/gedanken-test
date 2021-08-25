@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import type { AppProps } from 'next/app'
 import { GeneralContainer, Container } from '../styles/general'
@@ -20,9 +19,8 @@ const Home: React.FC<AppProps> = ({ Component, pageProps }) => {
           <h2>Menu Principal</h2>
 
           <ul>
-          <li><Link href="/list">Listagem</Link></li>
-          <li><Link href="/transaction">Transação</Link></li>
-          <li><Link href="/details">Details</Link></li>
+          <li><Link href="/list">Listagem de transações</Link></li>
+          <li><Link href="/transaction">Cadastrar Transação</Link></li>
         </ul>
 
         </Container>

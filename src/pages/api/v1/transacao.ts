@@ -7,10 +7,8 @@ type TransactionResponse = {
 }
 
 let transactionsArray:ITransaction[]  = []
-//let transactionsArray:any = []
 
-// export default (req: NextApiRequest, res: NextApiResponse<TransactionResponse>) => {
-export default (req: NextApiRequest, res: NextApiResponse<any>) => {
+export default (req: NextApiRequest, res: NextApiResponse<TransactionResponse>) => {
 
   if (req.method === 'POST') {
     transactionsArray.push(req.body)

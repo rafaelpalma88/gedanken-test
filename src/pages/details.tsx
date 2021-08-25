@@ -1,25 +1,22 @@
-import type { AppProps } from 'next/app'
 import { GeneralContainer, Container } from '../styles/general'
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import { ITransaction, IExtendedAppProps } from '../interfaces'
+import { IExtendedAppProps } from '../interfaces'
 
 const Details: React.FC<IExtendedAppProps> = ({ Component, pageProps, transactions }) => {
 
   const router = useRouter()
   const { id } = router.query
 
-  const respectiveTransaction = transactions.filter((transaction) => {
-    // return transaction.id === id;
-    return true
-  })
+
+  const selected = transactions.filter(item => item.id === Number(id))[0]
 
   return (
     <GeneralContainer>
       <Container>
         <h2>Detalhe da Transação id: {id}</h2>
 
-        { /*respectiveTransaction.descricao*/ }
+        { selected?.descricao }
 
       </Container>
     </GeneralContainer>

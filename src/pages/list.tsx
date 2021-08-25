@@ -1,9 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
-import type { AppProps } from 'next/app'
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { GeneralContainer, Container } from '../styles/general'
-import { ITransaction, IExtendedAppProps } from '../interfaces'
+import { IExtendedAppProps } from '../interfaces'
 
 const List: React.FC<IExtendedAppProps> = ({ Component, pageProps, transactions }) => {
   return (
